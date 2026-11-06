@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InsightForge — Auto Dashboard</title>
+<style id="insightforge-styles">
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#18202a;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.topbar{height:72px;background:#fff;border-bottom:1px solid #e5e9ef;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;position:sticky;top:0;z-index:5}.brand{font-weight:800;font-size:21px;letter-spacing:-.4px}.tag{font-size:12px;color:#77818e;margin-top:2px}.upload{border:1px solid #d6dce5;border-radius:10px;padding:9px 13px;font-weight:650;font-size:13px;background:#fff;cursor:pointer}.upload input{display:none}.wrap{width:min(1180px,90vw);margin:0 auto}.hero{padding:58px 0 32px;display:flex;justify-content:space-between;gap:30px;align-items:flex-end}.eyebrow,.section-label{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#64707e}.hero h1{font-size:48px;line-height:1.02;letter-spacing:-2px;margin:12px 0}.hero h1 span{color:#5267d8}.sub{max-width:700px;color:#66717e;line-height:1.6;margin:0}.status{background:#fff;border:1px solid #e2e7ed;border-radius:12px;padding:12px 15px;font-size:12px;color:#66717e;white-space:nowrap}.workspace{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}.problem-card,.profile-card,.dashboard{background:#fff;border:1px solid #e1e6ed;border-radius:16px;box-shadow:0 8px 28px rgba(26,37,52,.04)}.problem-card,.profile-card{padding:22px}.problem-card textarea{width:100%;height:115px;margin-top:13px;resize:vertical;border:1px solid #dce2e9;border-radius:12px;padding:15px;font:inherit;font-size:15px;outline:none}.problem-card textarea:focus{border-color:#8190e2;box-shadow:0 0 0 3px rgba(82,103,216,.1)}.suggestions{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 15px}.suggestion{border:1px solid #dfe4eb;background:#fafbfc;border-radius:999px;padding:7px 10px;font-size:11px;color:#596471;cursor:pointer}.suggestion:hover{background:#f0f3fa}.primary{background:#5267d8;color:#fff;border:0;border-radius:10px;padding:11px 17px;font-weight:750;cursor:pointer}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.profile-item{padding:11px;background:#f7f8fa;border-radius:10px}.profile-item strong{display:block;font-size:17px}.profile-item span{font-size:10px;color:#7a8490}.roles{margin-top:13px;font-size:11px;line-height:1.8;color:#68727e}.role-pill{display:inline-block;background:#eef1ff;color:#5364bb;border-radius:999px;padding:3px 7px;margin:2px}.dashboard{margin:18px 0 60px;padding:24px}.dash-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.dash-head h2{margin:7px 0 0;font-size:27px;letter-spacing:-.7px}.plan{font-size:11px;color:#65707d;background:#f7f8fa;border-radius:9px;padding:8px 10px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.kpi{border:1px solid #e5e8ed;border-radius:12px;padding:15px}.kpi .v{font-size:22px;font-weight:800}.kpi .l{font-size:10px;color:#7a8490;margin-top:4px}.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}.chart{border:1px solid #e5e8ed;border-radius:12px;padding:15px;overflow:hidden}.chart.wide{grid-column:1/-1}.chart h3{font-size:13px;margin:0 0 12px}.chart p{font-size:10px;color:#7b8490;margin:0 0 8px}.bar-row{display:grid;grid-template-columns:120px 1fr 55px;gap:8px;align-items:center;margin:8px 0;font-size:10px}.bar-track{height:9px;background:#edf0f4;border-radius:99px;overflow:hidden}.bar-fill{height:100%;background:#5267d8;border-radius:99px}.bar-val{text-align:right;font-weight:700}.table{width:100%;border-collapse:collapse;font-size:11px}.table th,.table td{text-align:left;padding:8px;border-bottom:1px solid #edf0f3}.table th{color:#717b87;font-size:10px}.insights{margin-top:15px;background:#f7f8fa;border-radius:12px;padding:16px}.insights h3{margin:0 0 9px;font-size:13px}.insights li{font-size:12px;line-height:1.55;margin:6px 0;color:#4f5965}footer{text-align:center;color:#9098a2;font-size:10px;padding:0 0 30px}@media(max-width:800px){.hero,.workspace{display:block}.profile-card{margin-top:15px}.hero h1{font-size:37px}.status{display:inline-block;margin-top:18px}.kpis{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}.chart.wide{grid-column:auto}.topbar{padding:0 5vw}.upload{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="brand">InsightForge</div>
+    <div class="tag">Business problem → automatic dashboard</div>
+  </div>
+  <label class="upload">
+    <span>Upload CSV</span>
+    <input id="fileInput" type="file" accept=".csv,text/csv">
+  </label>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">AUTOMATED ANALYTICS</p>
+      <h1>Ask a business question.<br><span>Get the dashboard.</span></h1>
+      <p class="sub">No manual chart selection. InsightForge profiles the dataset, interprets the problem statement, chooses the analysis, and explains the result.</p>
+    </div>
+    <div class="status" id="status">Demo dataset loaded</div>
+  </section>
+
+  <section class="workspace">
+    <div class="problem-card">
+      <div class="section-label">01 · BUSINESS PROBLEM</div>
+      <textarea id="question" placeholder="Example: Does discount usage affect repeat ordering?"></textarea>
+      <div class="suggestions" id="suggestions"></div>
+      <button id="analyzeBtn" class="primary">Generate dashboard</button>
+    </div>
+
+    <div class="profile-card">
+      <div class="section-label">02 · DATA UNDERSTANDING</div>
+      <div id="profile"></div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="dashboard">
+    <div class="dash-head">
+      <div>
+        <div class="section-label">03 · AUTOMATIC RESULT</div>
+        <h2 id="dashTitle">Overview</h2>
+      </div>
+      <div id="plan" class="plan"></div>
+    </div>
+    <div id="kpis" class="kpis"></div>
+    <div id="charts" class="charts"></div>
+    <div id="insights" class="insights"></div>
+  </section>
+</main>
+
+<footer>InsightForge prototype · Built for dataset-driven business analysis</footer>
+<script src="app.js"></script>
+</body>
+</html>
